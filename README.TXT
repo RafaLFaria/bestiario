@@ -1,0 +1,3 @@
+sugestão de compilação:
+gcc -std=c11 -Wall -Wextra -pedantic \
+main.c monstro.c bestiario.c -o bestiario

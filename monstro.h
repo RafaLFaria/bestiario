@@ -213,6 +213,25 @@ typedef struct
     EixoMoral moral;
 } Tendencia;
 
+typedef struct {
+    Terreno terreno;
+    int modificador;
+} ModificadorTerreno;
+
+typedef struct {
+    int poderBase;
+    int modDia;
+    int modNoite;
+    ModificadorTerreno modTerreno[MAX_TERRENOS];
+    int quantidadeModTerrenos;
+    int bonusPorAdicional;
+    int limiteGrupoGrande;
+    int bonusGrupoGrande;
+} PoderEncontro;
+
+
+//ficha do monstro
+
 typedef struct
 {
     int id;
@@ -260,5 +279,41 @@ typedef struct
 
     PoderEncontro poder;
 } Monstro;
+
+
+//funcoes de apoio
+
+int converteTextoDado(const char *texto, Dado *dado);
+void dadoParaTexto(Dado dado, char *destino, int tamanho);
+int validaDado(Dado dado);
+const char *frequenciaParaTexto(Frequencia frequencia);
+Frequencia textoParaFrequencia(const char *texto);
+const char *climaParaTexto(Clima clima);
+Clima textoParaClima(const char *texto);
+const char *terrenoParaTexto(Terreno terreno);
+Terreno textoParaTerreno(const char *texto);
+const char *organizacaoParaTexto(Organizacao organizacao);
+Organizacao textoParaOrganizacao(const char *texto);
+const char *atividadeParaTexto(Atividade atividade);
+Atividade textoParaAtividade(const char *texto);
+const char *dietaParaTexto(Dieta dieta);
+Dieta textoParaDieta(const char *texto);
+const char *eixoOrdemParaTexto(EixoOrdem eixo);
+EixoOrdem textoParaEixoOrdem(const char *texto);
+const char *eixoMoralParaTexto(EixoMoral eixo);
+EixoMoral textoParaEixoMoral(const char *texto);
+const char *tipoMovimentoParaTexto(TipoMovimento tipo);
+TipoMovimento textoParaTipoMovimento(const char *texto);
+const char *manobrabilidadeParaTexto(Manobrabilidade manobrabilidade);
+Manobrabilidade textoParaManobrabilidade(const char *texto);
+const char *tipoEspecialParaTexto(TipoEspecial tipo);
+TipoEspecial textoParaTipoEspecial(const char *texto);
+const char *tamanhoParaTexto(Tamanho tamanho);
+Tamanho textoParaTamanho(const char *texto);
+const char *classificacaoMoralParaTexto(ClassificacaoMoral classificacao);
+ClassificacaoMoral textoParaClassificacaoMoral(const char *texto);
+int validaMonstro(const Monstro *m);
+void exibeMonstro(const Monstro *m);
+
 
 #endif

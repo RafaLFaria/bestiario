@@ -11,7 +11,6 @@ typedef struct
 void inicializaBestiario(Bestiario *b);
 int carregaBestiario(Bestiario *b, const char *nomeArquivo);
 int salvaBestiario(const Bestiario *b, const char *nomeArquivo);
-int validaMonstro(const Monstro *m);
 
 //mini crud
 
@@ -22,7 +21,6 @@ Monstro *buscaMonstroPorNome(Bestiario *b, const char *nome);
 int alteraMonstro(Bestiario *b, int id, Monstro novosDados);
 int removeMonstro(Bestiario *b, int id);
 void listaMonstros(const Bestiario *b);
-void exibeMonstro(const Monstro *m);
 
 //consultas ecologicas
 

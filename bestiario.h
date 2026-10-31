@@ -1,19 +1,23 @@
+#ifndef BESTIARIO_H
+#define BESTIARIO_H
 
-//para cadastros no crud
-#define MAX_MONSTROS 100
 #include "monstro.h"
+
+#define MAX_MONSTROS 100
+
+/* Struct do Bestiário: guarda o vetor de monstros e quantos já foram cadastrados */
 typedef struct
 {
     Monstro monstros[MAX_MONSTROS];
     int quantidade;
 } Bestiario;
 
+/* Funções principais para gerenciar o bestiário e os arquivos */
 void inicializaBestiario(Bestiario *b);
 int carregaBestiario(Bestiario *b, const char *nomeArquivo);
 int salvaBestiario(const Bestiario *b, const char *nomeArquivo);
 
-//mini crud
-
+/* Operações do mini-CRUD */
 int insereMonstro(Bestiario *b, Monstro monstro);
 Monstro *buscaMonstroPorId(Bestiario *b, int id);
 const Monstro *consultaMonstroPorId(const Bestiario *b, int id);
@@ -22,13 +26,14 @@ int alteraMonstro(Bestiario *b, int id, Monstro novosDados);
 int removeMonstro(Bestiario *b, int id);
 void listaMonstros(const Bestiario *b);
 
-//consultas ecologicas
-
+/* Funções de consultas ecológicas exigidas */
 int viveNoTerreno(const Monstro *m, Terreno terreno);
 int ativoNoPeriodo(const Monstro *m, Atividade periodo);
 int listaMonstrosPorTerreno(
-const Bestiario *b,
-Terreno terreno,
-Monstro *resultado[],
-int capacidadeResultado
+    const Bestiario *b,
+    Terreno terreno,
+    Monstro *resultado[],
+    int capacidadeResultado
 );
+
+#endif

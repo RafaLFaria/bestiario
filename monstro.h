@@ -1,14 +1,14 @@
-// ESTRUTURA SUGERIDA PARA O MONSTRO
-
 #ifndef MONSTRO_H
 #define MONSTRO_H
 
+// Limites máximos definidos pelo enunciado para os vetores internos da ficha
 #define MAX_CLIMAS 5
 #define MAX_TERRENOS 8
 #define MAX_MOVIMENTOS 4
 #define MAX_ATAQUES 6
 #define MAX_ESPECIAIS 6
 
+/* Enums para padronizar as características ecológicas e de combate dos monstros */
 typedef enum
 {
     MUITO_RARO,
@@ -181,6 +181,7 @@ typedef enum
     MORAL_FANATICO
 } ClassificacaoMoral;
 
+/* Structs auxiliares para dados, movimentos, ataques e tendências */
 typedef struct
 {
     int quantidade;
@@ -194,6 +195,7 @@ typedef struct
     int deslocamento;
     Manobrabilidade manobrabilidade;
 } Movimento;
+
 typedef struct
 {
     char nome[40];
@@ -229,9 +231,7 @@ typedef struct {
     int bonusGrupoGrande;
 } PoderEncontro;
 
-
-//ficha do monstro
-
+/* A struct principal que guarda a ficha inteira de um monstro */
 typedef struct
 {
     int id;
@@ -280,12 +280,11 @@ typedef struct
     PoderEncontro poder;
 } Monstro;
 
-
-//funcoes de apoio
-
+/* Funções públicas do módulo de monstro (conversões, validação e print) */
 int converteTextoDado(const char *texto, Dado *dado);
 void dadoParaTexto(Dado dado, char *destino, int tamanho);
 int validaDado(Dado dado);
+
 const char *frequenciaParaTexto(Frequencia frequencia);
 Frequencia textoParaFrequencia(const char *texto);
 const char *climaParaTexto(Clima clima);
@@ -312,8 +311,8 @@ const char *tamanhoParaTexto(Tamanho tamanho);
 Tamanho textoParaTamanho(const char *texto);
 const char *classificacaoMoralParaTexto(ClassificacaoMoral classificacao);
 ClassificacaoMoral textoParaClassificacaoMoral(const char *texto);
+
 int validaMonstro(const Monstro *m);
 void exibeMonstro(const Monstro *m);
-
 
 #endif

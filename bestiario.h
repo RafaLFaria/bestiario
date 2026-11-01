@@ -32,7 +32,7 @@ int ativoNoPeriodo(const Monstro *m, Atividade periodo);
 int listaMonstrosPorTerreno(
     const Bestiario *b,
     Terreno terreno,
-    Monstro *resultado[],
+    const Monstro *resultado[],
     int capacidadeResultado
 );
 

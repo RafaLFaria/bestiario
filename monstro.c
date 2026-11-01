@@ -254,3 +254,23 @@ void exibeMonstro(const Monstro *m) {
     printf("Res. Magia: %d%%\n", m->resistenciaMagia);
     printf("============================================================\n\n");
 }
+
+
+
+/* Valida se o dado tem uma quantidade e um número de faces coerente */
+int validaDado(Dado dado) {
+    if (dado.quantidade <= 0 || dado.faces <= 0) {
+        return 0;
+    }
+    return 1;
+}
+
+/* Converte a struct Dado novamente para texto (ex: "1d8", "2d4+2", "1d8-1") */
+void dadoParaTexto(Dado dado, char *destino, int tamanho) {
+    if (dado.modificador == 0) {
+        snprintf(destino, tamanho, "%dd%d", dado.quantidade, dado.faces);
+    } else {
+        /* O '%+d' garante que o sinal positivo ou negativo é impresso automaticamente */
+        snprintf(destino, tamanho, "%dd%d%+d", dado.quantidade, dado.faces, dado.modificador);
+    }
+}

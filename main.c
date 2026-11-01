@@ -172,7 +172,7 @@ int main(void)
             printf("Escolha o terreno (0: CAVERNA, 1: RUINAS, 2: FLORESTA, 3: MONTANHA, 4: PLANICIE, 5: DESERTO, 6: URBANO, 7: PANTANO): ");
             scanf("%d", &terr);
 
-            Monstro *res[MAX_MONSTROS];
+            const Monstro *res[MAX_MONSTROS];
             int qtd = listaMonstrosPorTerreno(&b, (Terreno)terr, res, MAX_MONSTROS);
             
             printf("Monstros encontrados no terreno: %d\n", qtd);
